@@ -1,0 +1,11 @@
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\bin\Debug\net9.0\Zafiria.Core.deps.json
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\bin\Debug\net9.0\Zafiria.Core.dll
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\bin\Debug\net9.0\Zafiria.Core.pdb
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.AssemblyInfoInputs.cache
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.AssemblyInfo.cs
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.csproj.CoreCompileInputs.cache
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.dll
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\refint\Zafiria.Core.dll
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.pdb
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\ref\Zafiria.Core.dll

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "jWddqeapMCZHXXVXQw/hltxWZ0BhB8tuDTuzGsnU8XA=",
+  "Source": "Zafiria.API",
+  "BasePath": "_content/Zafiria.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
