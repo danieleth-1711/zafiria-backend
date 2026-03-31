@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Zafiria.Infrastructure.Data;
+using Zafiria.Application.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,9 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddControllers();
+// FluentValidation
+builder.Services.AddScoped<CrearJoyaDtoValidator>();
+builder.Services.AddScoped<CrearReservaDtoValidator>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

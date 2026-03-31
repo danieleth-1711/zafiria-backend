@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Zafiria.Application.DTOs;
+using Zafiria.Application.Validators;
 using Zafiria.Infrastructure.Data;
 using Zafiria.Core.Entities;
 
@@ -12,10 +13,12 @@ namespace Zafiria.API.Controllers;
 public class JoyasController : ControllerBase
 {
     private readonly ZafiriaDbContext _context;
+    private readonly CrearJoyaDtoValidator _validator;
 
-    public JoyasController(ZafiriaDbContext context)
+    public JoyasController(ZafiriaDbContext context, CrearJoyaDtoValidator validator)
     {
         _context = context;
+        _validator = validator;
     }
 
     [HttpGet]
@@ -93,7 +96,7 @@ public class JoyasController : ControllerBase
             })
             .ToListAsync();
 
-        return Ok(ApiResponse<List<JoyaDto>>.Success(joyas, "Joyas por categoría obtenidas"));
+        return Ok(ApiResponse<List<JoyaDto>>.Success(joyas, "Joyas por categoria obtenidas"));
     }
 
     [HttpGet("ocasion/{ocasionId}")]
@@ -118,13 +121,20 @@ public class JoyasController : ControllerBase
             })
             .ToListAsync();
 
-        return Ok(ApiResponse<List<JoyaDto>>.Success(joyas, "Joyas por ocasión obtenidas"));
+        return Ok(ApiResponse<List<JoyaDto>>.Success(joyas, "Joyas por ocasion obtenidas"));
     }
 
     [HttpPost]
     [Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Create([FromBody] CrearJoyaDto dto)
     {
+        var validation = await _validator.ValidateAsync(dto);
+        if (!validation.IsValid)
+        {
+            var errors = validation.Errors.Select(e => e.ErrorMessage).ToList();
+            return BadRequest(ApiResponse<string>.Error("Validacion fallida", 400, errors));
+        }
+
         var joya = new Joya
         {
             Nombre = dto.Nombre,
@@ -148,6 +158,13 @@ public class JoyasController : ControllerBase
     [Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] CrearJoyaDto dto)
     {
+        var validation = await _validator.ValidateAsync(dto);
+        if (!validation.IsValid)
+        {
+            var errors = validation.Errors.Select(e => e.ErrorMessage).ToList();
+            return BadRequest(ApiResponse<string>.Error("Validacion fallida", 400, errors));
+        }
+
         var joya = await _context.Joyas.FindAsync(id);
         if (joya == null)
             return NotFound(ApiResponse<Joya>.Error("Joya no encontrada", 404));
@@ -179,4 +196,4 @@ public class JoyasController : ControllerBase
 
         return Ok(ApiResponse<string>.Success("Eliminado", "Joya eliminada exitosamente"));
     }
-} 
+}
