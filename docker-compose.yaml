@@ -1,0 +1,72 @@
+services:
+
+  zafiria-db:
+    image: postgres:15
+    container_name: zafiria-db
+    environment:
+      POSTGRES_DB: zafiria_db
+      POSTGRES_USER: zafiria_user
+      POSTGRES_PASSWORD: Zafiria2026
+    ports:
+      - "5455:5432"
+    volumes:
+      - zafiria-pgdata:/var/lib/postgresql/data
+      - ./init-db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zafiria_user -d zafiria_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - zafiria-net
+
+  zafiria-auth:
+    image: quay.io/keycloak/keycloak:23.0
+    container_name: zafiria-auth
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://zafiria-db:5432/keycloak_db
+      KC_DB_USERNAME: zafiria_user
+      KC_DB_PASSWORD: Zafiria2026
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: Zafiria2026
+      KC_HOSTNAME_STRICT: false
+      KC_HTTP_ENABLED: true
+    ports:
+      - "8910:8080"
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
+    depends_on:
+      zafiria-db:
+        condition: service_healthy
+    networks:
+      - zafiria-net
+
+  zafiria-api:
+    build:
+      context: .
+      dockerfile: Zafiria.API/Dockerfile
+    container_name: zafiria-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=zafiria-db;Port=5432;Database=zafiria_db;Username=zafiria_user;Password=Zafiria2026
+      - Keycloak__Authority=http://zafiria-auth:8080/realms/zafiria-realm
+      - Keycloak__ClientId=zafiria-api
+      - Keycloak__ClientSecret=zWNEnhX7R1mNISxhuF6RvKNtWBk9z9Dp
+      - Keycloak__Audience=zafiria-api
+    ports:
+      - "5025:8080"
+    depends_on:
+      zafiria-db:
+        condition: service_healthy
+    networks:
+      - zafiria-net
+
+networks:
+  zafiria-net:
+    driver: bridge
+
+volumes:
+  zafiria-pgdata:

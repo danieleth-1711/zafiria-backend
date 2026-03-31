@@ -9,3 +9,4 @@ C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Cor
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\refint\Zafiria.Core.dll
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.pdb
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\ref\Zafiria.Core.dll
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Core\obj\Debug\net9.0\Zafiria.Core.sourcelink.json

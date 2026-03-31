@@ -34,3 +34,4 @@ C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Infrastructure\obj\Debug\net9.0\Z
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Infrastructure\obj\Debug\net9.0\refint\Zafiria.Infrastructure.dll
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Infrastructure\obj\Debug\net9.0\Zafiria.Infrastructure.pdb
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Infrastructure\obj\Debug\net9.0\ref\Zafiria.Infrastructure.dll
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Infrastructure\obj\Debug\net9.0\Zafiria.Infrastructure.sourcelink.json

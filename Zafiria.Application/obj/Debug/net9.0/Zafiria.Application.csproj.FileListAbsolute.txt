@@ -13,3 +13,4 @@ C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Application\obj\Debug\net9.0\Zafi
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Application\obj\Debug\net9.0\refint\Zafiria.Application.dll
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Application\obj\Debug\net9.0\Zafiria.Application.pdb
 C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Application\obj\Debug\net9.0\ref\Zafiria.Application.dll
+C:\Users\WALDO\Desktop\zafiria-backend\Zafiria.Application\obj\Debug\net9.0\Zafiria.Application.sourcelink.json

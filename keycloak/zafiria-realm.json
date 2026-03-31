@@ -1,0 +1,61 @@
+{
+  "realm": "zafiria-realm",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "roles": {
+    "realm": [
+      {
+        "name": "Admin",
+        "description": "Rol de administrador"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "zafiria-api",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "zWNEnhX7R1mNISxhuF6RvKNtWBk9z9Dp",
+      "redirectUris": ["http://localhost:5025/*"],
+      "webOrigins": ["*"],
+      "bearerOnly": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm-roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "roles",
+            "jsonType.label": "String"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "zafiria-admin",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "admin@zafiria.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Zafiria2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["Admin"]
+    }
+  ]
+}
